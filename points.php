@@ -8,7 +8,7 @@ class Point
 
     public function __construct(int $x, int $y)
     {
-        $this->y = $x;
+        $this->x = $x;
         $this->y = $y;
     }
 }
