@@ -6,4 +6,4 @@ points_lib: points.h points.c
 	gcc -shared -o points.so points.o
 
 clean:
-	rm points.o
+	rm points.o points.so
