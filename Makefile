@@ -1,5 +1,6 @@
-run: points_lib
-	php -d opcache.preload="points-preload.php" points-test.php
+
+inline: points_lib
+	php  points-inline.php
 
 points_lib: points.h points.c
 	gcc -c -g points.c
