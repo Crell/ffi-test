@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-require_once 'points.php';
+require_once 'classes.php';
 
 // Initialize the library the manual way.
 $ffi = FFI::cdef(file_get_contents('points.h'), __DIR__ . '/points.so');
