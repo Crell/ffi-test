@@ -1,6 +1,5 @@
-
 #define FFI_SCOPE "POINTS"
-#define FFI_LIB "./points.o"
+#define FFI_LIB "points.so"
 
 struct point {
     int     x;
