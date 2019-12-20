@@ -1,10 +1,8 @@
 <?php
 declare(strict_types=1);
 
-require_once 'classes.php';
-
-// Initialize the library the manual way.
-$ffi = FFI::cdef(file_get_contents('points.h'), __DIR__ . '/points.so');
+// Get a handle on the appropriate scope.
+$ffi = FFI::scope('POINTS');
 
 $p1 = new Point(3, 4);
 $p2 = new Point(7, 9);
