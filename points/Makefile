@@ -1,5 +1,8 @@
 
-all: inline
+all: inline preload
+
+preload: points_lib
+	php -d opcache.preload="preloader.php" preload.php
 
 inline: points_lib
 	php  inline.php
