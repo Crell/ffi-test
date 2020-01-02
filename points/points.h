@@ -7,4 +7,4 @@ struct point {
     int     y;
 };
 
-extern double distance(struct point first, struct point second);
+double distance(struct point first, struct point second);
