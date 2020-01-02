@@ -17,6 +17,8 @@ variables:
 hooks:
     build: |
         set -e
+        cd points
+        make points_lib
 
     deploy: |
         set -e
