@@ -31,4 +31,4 @@ main: main.o
 	# Squish the main object code and points object code into one executable file.
 	# The -lm tells the linker to also include the math library, which is named "m".  Or rather, libm.
 	gcc -o main main.o points.o -lm
-
+	chmod +x main
