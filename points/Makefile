@@ -21,7 +21,7 @@ points.o: points.h points.c
 
 points.so: points.o
 	# Wrap the object file into a shared object.
-	gcc -shared -o points.so points.o
+	gcc -shared -o points.so points.o -lm
 
 main.o: main.c points.o
 	# Compile the main file into object code.
