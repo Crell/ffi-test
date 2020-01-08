@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include "./points.h"
 
-#define MAX 10
-
 void main() {
 
     struct point p1;
