@@ -18,7 +18,7 @@ hooks:
     build: |
         set -e
         cd points
-        make points_lib
+        make points.so
 
     deploy: |
         set -e
