@@ -11,5 +11,5 @@ void main() {
     p2.x = 7;
     p2.y = 9;
 
-    printf("From C: Distance is: %f\n\n", distance(p1, p2));
+    printf("Distance is: %f\n\n", distance(p1, p2));
 }

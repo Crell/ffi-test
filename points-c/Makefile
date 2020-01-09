@@ -17,17 +17,17 @@ clean:
 
 points.o: points.h points.c
 	# -c means "make an object file"
-	gcc -c -g points.c
+	gcc -c points.c
 
 points.so: points.o
 	# Wrap the object file into a shared object.
 	gcc -shared -o points.so points.o -lm
 
-main.o: main.c points.o
+main.o: main.c
 	# Compile the main file into object code.
-	gcc -c -g main.c
+	gcc -c main.c
 
-main: main.o
+main: main.o points.o
 	# Squish the main object code and points object code into one executable file.
 	# The -lm tells the linker to also include the math library, which is named "m".  Or rather, libm.
 	gcc -o main main.o points.o -lm
