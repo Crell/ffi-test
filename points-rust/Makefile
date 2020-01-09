@@ -10,25 +10,10 @@ inline: points.so
 	php -d opcache.enable_cli=true inline.php
 
 clean:
-	rm -f *.o *.so main
-
+	rm -rf points/target
+	rm -f points.h
 
 ## Building dependencies
 
-points.o: points.h points.c
-	# -c means "make an object file"
-	gcc -c -g points.c
-
-points.so: points.o
-	# Wrap the object file into a shared object.
-	gcc -shared -o points.so points.o -lm
-
-main.o: main.c points.o
-	# Compile the main file into object code.
-	gcc -c -g main.c
-
-main: main.o
-	# Squish the main object code and points object code into one executable file.
-	# The -lm tells the linker to also include the math library, which is named "m".  Or rather, libm.
-	gcc -o main main.o points.o -lm
-	chmod +x main
+rust:
+	cd points && cargo build --release
