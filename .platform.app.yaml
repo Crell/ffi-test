@@ -9,6 +9,10 @@ type: php:7.4
 build:
     flavor: composer
 
+runtime:
+    extensions:
+        - ffi
+
 variables:
     php:
         opcache.preload: 'points/preloader.php'
