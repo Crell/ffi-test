@@ -21,7 +21,6 @@ variables:
 hooks:
     build: |
         set -e
-        cd points
         make points.so
 
     deploy: |
