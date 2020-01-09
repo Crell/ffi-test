@@ -6,7 +6,3 @@
 "https://c-ffi.{default}/":
     type: upstream
     upstream: "c:http"
-
-"https://www.{default}/":
-    type: redirect
-    to: "https://{default}/"
