@@ -3,10 +3,10 @@
 
 all: inline preload
 
-preload: points.so
+preload: rust
 	php -d opcache.preload="preloader.php" -d opcache.enable_cli=true preload.php
 
-inline: points.so
+inline: rust
 	php -d opcache.enable_cli=true inline.php
 
 clean:

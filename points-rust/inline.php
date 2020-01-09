@@ -3,8 +3,14 @@ declare(strict_types=1);
 
 require_once 'classes.php';
 
+try {
 // Initialize the library the manual way.
-$ffi = FFI::cdef(file_get_contents('points.h'), __DIR__ . '/points.so');
+    $ffi = FFI::cdef(file_get_contents('points/points.h'), __DIR__ . '/points/target/release/points.so');
+}
+catch (FFI\Exception $e) {
+    print($e->getMessage() . PHP_EOL . PHP_EOL);
+    exit;
+}
 
 $p1 = new Point(3, 4);
 $p2 = new Point(7, 9);

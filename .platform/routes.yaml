@@ -6,3 +6,7 @@
 "https://c-ffi.{default}/":
     type: upstream
     upstream: "c:http"
+
+"https://rust-ffi.{default}/":
+    type: upstream
+    upstream: "rust:http"
