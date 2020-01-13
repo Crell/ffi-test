@@ -1,5 +1,4 @@
 #define FFI_SCOPE "POINTS"
-
 #define FFI_LIB "./points.so"
 
 // FFI_LIB uses the system include path, and cwd is NOT included in that by default.

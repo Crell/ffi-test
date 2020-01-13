@@ -37,5 +37,4 @@ class PointApi
 
         return static::$ffi->distance($cp1, $cp2);
     }
-
 }
