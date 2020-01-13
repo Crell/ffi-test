@@ -14,7 +14,7 @@ class Point
 
     public function toStruct($ffi)
     {
-        $cp = $ffi->new('struct point');
+        $cp = $ffi->new('struct Point');
         $cp->x = $this->x;
         $cp->y = $this->y;
         return $cp;
