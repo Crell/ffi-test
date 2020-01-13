@@ -1,39 +1,29 @@
-# This file describes an application. You can have multiple applications
-# in the same project.
-
 # The name of this app. Must be unique within a project.
 name: c
 
-# The type of the application to build.
 type: php:7.4
-build:
-    flavor: composer
 
+# FFI is an extension. It must be explicitly enabled.
 runtime:
     extensions:
         - ffi
 
+# Setting a variable in the `php` namespace makes it an ini setting. This block
+# tells PHP-FPM to run `preloader.php` on startup. It's the same file we saw before.
 variables:
     php:
         opcache.preload: 'preloader.php'
 
-# The hooks that will be performed when the package is deployed.
 hooks:
     build: |
+        # Using the `Makefile`, compile the `points.so` file.
         set -e
         make points.so
 
-    deploy: |
-        set -e
-
-# The size of the persistent disk of the application (in MB).
-disk: 128
-
-# The configuration of app when it is exposed to the web.
 web:
     locations:
         "/":
-            # The public directory of the app, relative to its root.
             root: "web"
-            # The front-controller script to send non-static requests to.
             passthru: "/index.php"
+
+disk: 128
