@@ -17,3 +17,6 @@ clean:
 
 rust:
 	cd points && cargo build --release
+
+tests:
+	cd points && cargo test
