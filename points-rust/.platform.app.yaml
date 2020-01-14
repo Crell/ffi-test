@@ -21,6 +21,10 @@ variables:
 hooks:
     build: |
         set -e
+        curl https://sh.rustup.rs > rustup.sh
+        sh rustup.sh -y --default-toolchain stable
+        rm rustup.sh
+        . "$HOME/.cargo/env"
         cd points
         cargo build --release
 
@@ -34,7 +38,5 @@ disk: 128
 web:
     locations:
         "/":
-            # The public directory of the app, relative to its root.
             root: "web"
-            # The front-controller script to send non-static requests to.
             passthru: "/index.php"
