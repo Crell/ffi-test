@@ -1,7 +1,7 @@
 
 ## User-friendly targets.
 
-all: inline preload
+all: inline preload run
 
 preload: rust
 	php -d opcache.preload="preloader.php" -d opcache.enable_cli=true preload.php
