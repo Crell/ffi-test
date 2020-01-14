@@ -11,7 +11,10 @@ inline: rust
 
 clean:
 	rm -rf points/target
-	rm -f points.h
+
+run: rust
+	./points/target/release/points
+
 
 ## Building dependencies
 
