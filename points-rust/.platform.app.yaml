@@ -22,21 +22,30 @@ hooks:
     build: |
         set -e
 
-        echo "Switching to cache dir."
-        date
-
         cd $PLATFORM_CACHE_DIR
-        curl https://sh.rustup.rs > rustup.sh
-        sh rustup.sh -y --default-toolchain stable
-        rm rustup.sh
+        mkdir -p rust
+        cd rust
+        echo "Copying to cache dir"
+        date
+        rsync $PLATFORM_APP_DIR/points/ .
+        echo "Setting up Rust"
+        date
+        if [ ! -f rustup.sh ]; then
+            curl https://sh.rustup.rs > rustup.sh
+            sh rustup.sh -y --default-toolchain stable
+        fi
         . "$HOME/.cargo/env"
-
-        echo "Switching back to app dir."
+        echo "Done setting up Rust"
+        date
+        cargo build --release
+        echo "Done building"
         date
 
-        cd $PLATFORM_APP_DIR
-        cd points
-        cargo build --release
+        cd $PLATFORM_APP_DIR/points
+        echo "Copying back to app dir"
+        date
+        rsync $PLATFORM_CACHE_DIR/rust/ .
+        echo "Done copying back to app dir"
         date
 
 
