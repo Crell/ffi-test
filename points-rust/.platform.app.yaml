@@ -21,10 +21,13 @@ variables:
 hooks:
     build: |
         set -e
+        cd $PLATFORM_CACHE_DIR
+
         curl https://sh.rustup.rs > rustup.sh
         sh rustup.sh -y --default-toolchain stable
         rm rustup.sh
         . "$HOME/.cargo/env"
+        cd $PLATFORM_APP_DIR
         cd points
         cargo build --release
 
