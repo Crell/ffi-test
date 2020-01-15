@@ -27,8 +27,8 @@ hooks:
         cd rust
         echo "Copying to cache dir"
         date
-        ls -lR target/release/
         rsync -r $PLATFORM_APP_DIR/points/ .
+        ls -lR target/release/
         echo "Setting up Rust"
         date
         curl https://sh.rustup.rs > rustup.sh
