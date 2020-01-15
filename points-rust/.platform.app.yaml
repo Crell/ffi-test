@@ -31,8 +31,6 @@ hooks:
         cd points
         cargo build --release
 
-    deploy: |
-        set -e
 
 # The size of the persistent disk of the application (in MB).
 disk: 128
@@ -43,3 +41,4 @@ web:
         "/":
             root: "web"
             passthru: "/index.php"
+
