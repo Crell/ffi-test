@@ -36,8 +36,8 @@ hooks:
         echo "Done setting up Rust"
         date
         pwd
-        ls -p
         cargo build --release
+
         echo "Done building"
         date
 
