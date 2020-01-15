@@ -27,7 +27,7 @@ hooks:
         cd rust
         echo "Copying to cache dir"
         date
-        tree
+        ls -lR target/release/
         rsync -r $PLATFORM_APP_DIR/points/ .
         echo "Setting up Rust"
         date
@@ -38,7 +38,7 @@ hooks:
         date
         pwd
         cargo build --release
-        tree
+        ls -lR target/release/
         echo "Done building"
         date
 
