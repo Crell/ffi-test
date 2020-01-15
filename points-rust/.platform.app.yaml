@@ -60,5 +60,3 @@ web:
         "/":
             root: "web"
             passthru: "/index.php"
-
-
