@@ -33,9 +33,9 @@ hooks:
         if [ ! -f rustup.sh ]; then
             curl https://sh.rustup.rs > rustup.sh
             sh rustup.sh -y --default-toolchain stable
+            . "$HOME/.cargo/env"
         fi
         ls -la
-        .# "$HOME/.cargo/env"
         echo "Done setting up Rust"
         date
         pwd
