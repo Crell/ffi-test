@@ -23,7 +23,7 @@ hooks:
         set -e
 
         cd $PLATFORM_CACHE_DIR
-        mkdir -p rust
+        mkdir -p rust/target/release
         cd rust
         echo "Copying to cache dir"
         date
