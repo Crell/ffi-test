@@ -27,7 +27,7 @@ hooks:
         cd rust
         echo "Copying to cache dir"
         date
-        rsync $PLATFORM_APP_DIR/points/ .
+        rsync -r $PLATFORM_APP_DIR/points/ .
         echo "Setting up Rust"
         date
         if [ ! -f rustup.sh ]; then
@@ -46,7 +46,7 @@ hooks:
         cd $PLATFORM_APP_DIR/points
         echo "Copying back to app dir"
         date
-        rsync $PLATFORM_CACHE_DIR/rust/ .
+        rsync -r $PLATFORM_CACHE_DIR/rust/ .
         echo "Done copying back to app dir"
         date
 
