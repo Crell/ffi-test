@@ -21,15 +21,23 @@ variables:
 hooks:
     build: |
         set -e
-        cd $PLATFORM_CACHE_DIR
 
+        echo "Switching to cache dir."
+        date
+
+        cd $PLATFORM_CACHE_DIR
         curl https://sh.rustup.rs > rustup.sh
         sh rustup.sh -y --default-toolchain stable
         rm rustup.sh
         . "$HOME/.cargo/env"
+
+        echo "Switching back to app dir."
+        date
+
         cd $PLATFORM_APP_DIR
         cd points
         cargo build --release
+        date
 
 
 # The size of the persistent disk of the application (in MB).
