@@ -25,6 +25,7 @@ hooks:
         cd $PLATFORM_CACHE_DIR
         mkdir -p rust
         export CARGO_HOME=$PLATFORM_CACHE_DIR/rust
+        export RUSTUP_HOME=$PLATFORM_CACHE_DIR/rust
         cd rust
         ls -l
         echo "Copying to cache dir"
@@ -36,9 +37,10 @@ hooks:
         if [ ! -f rustup.sh ]; then
             curl https://sh.rustup.rs > rustup.sh
             sh rustup.sh -y --default-toolchain stable
-            . "$HOME/.cargo/env"
+            #. "$HOME/.cargo/env"
             echo "Done setting up Rust"
         fi
+        export PATH=$PLATFORM_CACHE_DIR/rust/.cargo/bin:$PATH
         #ls -l $HOME/.cargo
         date
         pwd
