@@ -24,7 +24,7 @@ hooks:
 
         cd $PLATFORM_CACHE_DIR
         mkdir -p rust
-        export CARGO_HOME=$PLATFORM_CACHE_DIR/rust
+        export CARGO_HOME=$PLATFORM_CACHE_DIR/rust/.cargo
         export RUSTUP_HOME=$PLATFORM_CACHE_DIR/rust
         cd rust
         ls -l
