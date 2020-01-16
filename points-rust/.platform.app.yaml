@@ -27,37 +27,16 @@ hooks:
         export CARGO_HOME=$PLATFORM_CACHE_DIR/rust/.cargo
         export RUSTUP_HOME=$PLATFORM_CACHE_DIR/rust
         cd rust
-        ls -l
-        echo "Copying to cache dir"
-        date
         rsync -r $PLATFORM_APP_DIR/points/ .
-        ls -l
-        echo "Setting up Rust"
-        date
         if [ ! -f rustup.sh ]; then
-            curl https://sh.rustup.rs > rustup.sh
-            sh rustup.sh -y --default-toolchain stable
-            #. "$HOME/.cargo/env"
-            echo "Done setting up Rust"
+        curl https://sh.rustup.rs > rustup.sh
+        sh rustup.sh -y --default-toolchain stable
         fi
-        ls -l $PLATFORM_CACHE_DIR/rust
-        #source /mnt/cache/app/rust/env
         export PATH=/mnt/cache/app/rust/.cargo/bin:$PATH
-        #ls -l $HOME/.cargo
-        date
-        pwd
         cargo build --release
-        ls -l
-        echo "Done building"
-        date
 
         cd $PLATFORM_APP_DIR/points
-        echo "Copying back to app dir"
-        date
         rsync -r $PLATFORM_CACHE_DIR/rust/ .
-        echo "Done copying back to app dir"
-        date
-
 
 # The size of the persistent disk of the application (in MB).
 disk: 128
