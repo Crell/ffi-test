@@ -1,8 +1,8 @@
 
 #[repr(C)]
 pub struct Point {
-    pub x: u8,
-    pub y: u8,
+    pub x: i8,
+    pub y: i8,
 }
 
 pub fn compute_distance(p1: Point, p2: Point) -> f64 {
