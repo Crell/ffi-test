@@ -12,12 +12,10 @@ pub fn compute_distance(p1: Point, p2: Point) -> f64 {
     (a_squared + b_squared).sqrt()
 }
 
-
 #[no_mangle]
 pub unsafe extern "C" fn distance(p1: Point, p2: Point) -> f64 {
     compute_distance(p1, p2)
 }
-
 
 #[cfg(test)]
 mod tests {
@@ -30,5 +28,4 @@ mod tests {
         let p2 = Point{x: 6, y: 6};
         assert_eq!(compute_distance(p1, p2), 5.0);
     }
-
 }
