@@ -36,8 +36,10 @@ hooks:
         sh rustup.sh -y --default-toolchain stable
         . "$HOME/.cargo/env"
         echo "Done setting up Rust"
+        ls -l $HOME/.cargo
         date
         pwd
+        export CARGO_HOME=$PLATFORM_CACHE_DIR/rust
         cargo build --release
         ls -l
         echo "Done building"
