@@ -40,6 +40,7 @@ hooks:
             #. "$HOME/.cargo/env"
             echo "Done setting up Rust"
         fi
+        ls -l $PLATFORM_CACHE_DIR/rust
         source /mnt/cache/app/rust/env
         #export PATH=$PLATFORM_CACHE_DIR/rust/.cargo/bin:$PATH
         #ls -l $HOME/.cargo
