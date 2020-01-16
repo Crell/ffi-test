@@ -25,10 +25,11 @@ hooks:
         cd $PLATFORM_CACHE_DIR
         mkdir -p rust/target/release
         cd rust
+        ls -l
         echo "Copying to cache dir"
         date
         rsync -r $PLATFORM_APP_DIR/points/ .
-        ls -lR target/release/
+        ls -l
         echo "Setting up Rust"
         date
         curl https://sh.rustup.rs > rustup.sh
@@ -38,7 +39,7 @@ hooks:
         date
         pwd
         cargo build --release
-        ls -lR target/release/
+        ls -l
         echo "Done building"
         date
 
