@@ -33,12 +33,10 @@ hooks:
         ls -l
         echo "Setting up Rust"
         date
-        if [ ! -f rustup.sh ]; then
-            curl https://sh.rustup.rs > rustup.sh
-            sh rustup.sh -y --default-toolchain stable
-            . "$HOME/.cargo/env"
-            echo "Done setting up Rust"
-        fi
+        curl https://sh.rustup.rs > rustup.sh
+        sh rustup.sh -y --default-toolchain stable
+        . "$HOME/.cargo/env"
+        echo "Done setting up Rust"
         ls -l $HOME/.cargo
         date
         pwd
