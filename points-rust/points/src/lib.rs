@@ -14,7 +14,7 @@ pub fn compute_distance(p1: Point, p2: Point) -> f64 {
 
 #[no_mangle]
 pub unsafe extern "C" fn distance(p1: Point, p2: Point) -> f64 {
-    compute_distance(p1, p2) + 1
+    compute_distance(p1, p2) + 1.0
 }
 
 #[cfg(test)]
