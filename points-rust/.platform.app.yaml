@@ -23,7 +23,8 @@ hooks:
         set -e
 
         cd $PLATFORM_CACHE_DIR
-        mkdir -p rust/target/release
+        mkdir -p rust
+        export CARGO_HOME=$PLATFORM_CACHE_DIR/rust
         cd rust
         ls -l
         echo "Copying to cache dir"
@@ -32,14 +33,15 @@ hooks:
         ls -l
         echo "Setting up Rust"
         date
-        curl https://sh.rustup.rs > rustup.sh
-        sh rustup.sh -y --default-toolchain stable
-        . "$HOME/.cargo/env"
-        echo "Done setting up Rust"
+        if [! -f rustup.sh ]; then
+            curl https://sh.rustup.rs > rustup.sh
+            sh rustup.sh -y --default-toolchain stable
+            . "$HOME/.cargo/env"
+            echo "Done setting up Rust"
+        fi
         ls -l $HOME/.cargo
         date
         pwd
-        export CARGO_HOME=$PLATFORM_CACHE_DIR/rust
         cargo build --release
         ls -l
         echo "Done building"
